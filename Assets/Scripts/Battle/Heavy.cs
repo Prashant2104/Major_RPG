@@ -8,7 +8,6 @@ public class Heavy : EnemyUnits
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Enemy used Heavy attack...";
-        animator.SetBool("Heavy", false);
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

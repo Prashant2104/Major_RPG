@@ -20,7 +20,6 @@ public class BattleSystem : MonoBehaviour
     public Text DialogueText;
 
     PlayerBattleController battleController;
-    PlayerUnits playerUnits;
     EnemyAI enemyUnits;
 
     private void OnEnable()
@@ -36,14 +35,13 @@ public class BattleSystem : MonoBehaviour
         Player_GO.SetActive(true);
 
         battleController = Player_GO.GetComponent<PlayerBattleController>();
-        playerUnits = Player_GO.GetComponent<PlayerUnits>();
         enemyUnits = Enemy_GO.GetComponent<EnemyAI>();
 
         Player_TPC.SetActive(false);
 
         DialogueText.text = "You encountered '" + enemyUnits.name + " '";
 
-        PlayerHUD.SetHUD(playerUnits);
+        PlayerHUD.SetHUD(battleController);
         EnemyHUD.SetHUD(enemyUnits);
 
         yield return new WaitForSeconds(2f);
@@ -51,100 +49,44 @@ public class BattleSystem : MonoBehaviour
         State = BattleState.PlayerTurn;
         PlayerTurn();
     }
-    void PlayerTurn()
+    public void PlayerTurn()
     {
         DialogueText.text = "Choose an action...";
     }
 
-    public void OnMeleeAttackButton()
+    public void OnLightMeleeAttackButton()
     {
         if (State != BattleState.PlayerTurn)
             return;
-        StartCoroutine(PlayerMelleAttack());
+        Player_GO.GetComponent<Animator>().SetTrigger("LightMelee");
     }
-    public void OnMagicAttackButton()
+    public void OnLightMagicAttackButton()
     {
         if (State != BattleState.PlayerTurn)
             return;
-        StartCoroutine(PlayerMagicAttack());
+        Player_GO.GetComponent<Animator>().SetTrigger("LightMagic");
     }
     public void OnBuffButton()
     {
         if (State != BattleState.PlayerTurn)
             return;
-        StartCoroutine(PlayerBuff());
+        Player_GO.GetComponent<Animator>().SetTrigger("Buff");
     }
-    IEnumerator PlayerMelleAttack()
+   
+    public void EnemyTurn()
     {
-        //bool isDead = enemyUnits.TakeDamage(playerUnits.MeleeDamage);
-
-        yield return new WaitForSeconds(2f);
-
-        EnemyHUD.SetHP(enemyUnits.CurrentHP);
-
-        /*if(isDead)
-        {
-            State = BattleState.Won;
-            EndBattle();
-        }
-        else
-        {
-            State = BattleState.EnemyTurn;
-            StartCoroutine(EnemyTurn());
-        }*/
+        DialogueText.text = "Enemy attacks...";
+        Enemy_GO.GetComponent<Animator>().SetTrigger("Attack");
     }
-    IEnumerator PlayerMagicAttack()
+    public void EndBattle()
     {
-        //bool isDead = enemyUnits.TakeDamage(playerUnits.MagicDamage);
-
-        yield return new WaitForSeconds(2f);
-
-        //EnemyHUD.SetHP(enemyUnits.CurrentHP);
-
-        /*if (isDead)
-        {
-            State = BattleState.Won;
-            EndBattle();
-        }
-        else
-        {
-            State = BattleState.EnemyTurn;
-            StartCoroutine(EnemyTurn());
-        }*/
-    }
-
-    IEnumerator PlayerBuff()
-    {
-        yield return new WaitForSeconds(2f);
-    }
-    void EndBattle()
-    {
-        if(State == BattleState.Won)
+        if (State == BattleState.Won)
         {
             DialogueText.text = "win";
         }
-        else if(State == BattleState.Lost)
+        else if (State == BattleState.Lost)
         {
             DialogueText.text = "lost";
         }
-    }
-    IEnumerator EnemyTurn()
-    {
-        DialogueText.text = "Enemy attacks...";
-        yield return new WaitForSeconds(1f);
-
-        //bool isDead = playerUnits.TakeDamage(enemyUnits.MeleeDamage);
-        //PlayerHUD.SetHP(playerUnits.CurrentHP);
-
-        /*if (isDead)
-        {
-            State = BattleState.Lost;
-            EndBattle();
-        }
-        else
-        {
-            State = BattleState.PlayerTurn;
-            PlayerTurn();
-        }*/
     }
 }

@@ -2,22 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerUnits : MonoBehaviour
+public class PlayerUnits : StateMachineBehaviour
 {
-    public string UnitName;
+    public GameObject Player;
+    public GameObject Opponent;
 
-    public float MeleeDamage;
-    public float MagicDamage;
+    float defence;
+    float maxHP;
+    float currentHP;
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        Player = animator.gameObject;
+        Opponent = Player.GetComponent<PlayerBattleController>().Enemy;
 
-    public float Defence;
-    public float MaxHP;
-    public float CurrentHP;
+        currentHP = Player.GetComponent<PlayerBattleController>().CurrentHP;
+        maxHP = Player.GetComponent<PlayerBattleController>().MaxHP;
+        defence = Player.GetComponent<PlayerBattleController>().Defence;
+    }
 
     public bool TakeDamage(float Dmg)
     {
-        CurrentHP -= (Dmg - Defence);
+        currentHP -= (Dmg - defence);
 
-        if (CurrentHP <= 0)
+        if (currentHP <= 0)
             return true;
         else
             return false;

@@ -9,7 +9,6 @@ public class Light : EnemyUnits
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Enemy used light attack...";
-        animator.SetBool("Light", false);
     }
     
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -36,4 +36,13 @@ public class EnemyAI : MonoBehaviour
         battleSystem.Enemy_GO = this.gameObject;
         battleSystem.enabled = true;
     }
+    public bool TakeDamage(float dmg)
+    {
+        CurrentHP -= (dmg - Defence);
+
+        if (CurrentHP <= 0)
+            return true;
+        else
+            return false;
+    }
 }

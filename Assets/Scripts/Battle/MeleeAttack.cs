@@ -22,16 +22,16 @@ public class MeleeAttack : EnemyUnits
                 switch (a)
                 {
                     case 4:
-                        animator.SetBool("Light", true);
+                        animator.SetTrigger("Light");
                         break;
                     case 1:
-                        animator.SetBool("BrawlerDefend", true);
+                        animator.SetTrigger("DefendB");
                         break;
                     case 2:
-                        animator.SetBool("Buff", true);
+                        animator.SetTrigger("Buff");
                         break;
                     case 3:
-                        animator.SetBool("Heavy", true);
+                        animator.SetTrigger("Heavy");
                         break;
                 }
             }
@@ -40,20 +40,20 @@ public class MeleeAttack : EnemyUnits
                 switch (a)
                 {
                     case 4:
-                        animator.SetBool("Light", true);
+                        animator.SetTrigger("Light");
                         break;
                     case 1:
-                        animator.SetBool("KnightDefend", true);
+                        animator.SetTrigger("DefendK");
                         break;
                     case 2:
-                        animator.SetBool("Buff", true);
+                        animator.SetTrigger("Buff");
                         break;
                     case 3:
-                        animator.SetBool("Light", true);
+                        animator.SetTrigger("Light");
                         break;
                 }
             }
-            //NPC.GetComponent<EnemyAI>().battleSystem.State = BattleState.PlayerTurn;
+            NPC.GetComponent<EnemyAI>().battleSystem.State = BattleState.PlayerTurn;
         }
     }
 }

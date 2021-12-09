@@ -8,10 +8,11 @@ public class Buff : EnemyUnits
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Enemy used Buff...";
-        animator.SetBool("Buff", false);
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        NPC.GetComponent<EnemyAI>().Defence += 5;
+        NPC.GetComponent<EnemyAI>().MeleeDamage += 2.5f;
+        NPC.GetComponent<EnemyAI>().MagicDamage += 2.5f;
+        NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Enemy's attack increased...";
     }
 }

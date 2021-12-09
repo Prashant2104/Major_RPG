@@ -8,23 +8,11 @@ public class Defend : EnemyUnits
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Enemy used light attack...";
-        animator.SetBool("KnightDefend", false);
-        animator.SetBool("BrawlerDefend", false);
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        /*bool isDead = Opponent.GetComponent<PlayerUnits>().TakeDamage(NPC.GetComponent<EnemyAI>().MeleeDamage);
-
-        if (isDead)
-        {
-            //GameOver
-            NPC.GetComponent<EnemyAI>().battleSystem.State = BattleState.Lost;
-        }
-        else
-        {
-            //PlayerTurn
-            NPC.GetComponent<EnemyAI>().battleSystem.State = BattleState.PlayerTurn;
-        }*/
+        NPC.GetComponent<EnemyAI>().Defence += 1.5f;
+        NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Enemy's defence increased...";
     }
 }
