@@ -33,6 +33,8 @@ public class PlayerBattleController : MonoBehaviour
     {
         CurrentHP -= (Dmg - Defence);
 
+        battleSystem.PlayerHUD.SetHP(CurrentHP);
+
         if (CurrentHP <= 0)
             return true;
         else

@@ -14,5 +14,8 @@ public class Buff : EnemyUnits
         NPC.GetComponent<EnemyAI>().MeleeDamage += 2.5f;
         NPC.GetComponent<EnemyAI>().MagicDamage += 2.5f;
         NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Enemy's attack increased...";
+
+        NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Choose an action...";
+        NPC.GetComponent<EnemyAI>().battleSystem.State = BattleState.PlayerTurn;
     }
 }

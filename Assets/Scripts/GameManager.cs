@@ -4,10 +4,24 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject Player_TPC;
+    public GameObject ThirdPersonController;
+    public GameObject Player_Battle;
+    public GameObject[] Enemy;
+    public BattleSystem battleSystem;
+
+    [SerializeField] int enemyCount;
+
     void Start()
     {
-        
+        ThirdPersonController.SetActive(true);
+        Player_Battle.SetActive(false);
+
+        battleSystem.enabled = false;
+
+        enemyCount = Enemy.Length;
+        for (int i = 0; i < enemyCount; i++)
+            Enemy[i].SetActive(true);
     }
 
     // Update is called once per frame

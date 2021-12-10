@@ -40,6 +40,8 @@ public class EnemyAI : MonoBehaviour
     {
         CurrentHP -= (dmg - Defence);
 
+        battleSystem.EnemyHUD.SetHP(CurrentHP);
+
         if (CurrentHP <= 0)
             return true;
         else

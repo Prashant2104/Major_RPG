@@ -20,6 +20,12 @@ public class Heavy : EnemyUnits
         {
             //GameOver
             NPC.GetComponent<EnemyAI>().battleSystem.State = BattleState.Lost;
+            NPC.GetComponent<EnemyAI>().battleSystem.EndBattle();
+        }
+        else
+        {
+            NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Choose an action...";
+            NPC.GetComponent<EnemyAI>().battleSystem.State = BattleState.PlayerTurn;
         }
     }
 }

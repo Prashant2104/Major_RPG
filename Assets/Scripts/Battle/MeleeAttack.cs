@@ -15,45 +15,47 @@ public class MeleeAttack : EnemyUnits
 
         a = Random.Range(1, 5);
 
-        //if (NPC.GetComponent<EnemyAI>().battleSystem.State == BattleState.EnemyTurn)
-        //{
-            if (NPC.GetComponent<EnemyAI>().IsHeavy)
+        if (NPC.GetComponent<EnemyAI>().IsHeavy)
+        {
+            switch (a)
             {
-                switch (a)
-                {
-                    case 4:
-                        animator.SetTrigger("Light");
-                        break;
-                    case 1:
-                        animator.SetTrigger("DefendB");
-                        break;
-                    case 2:
-                        animator.SetTrigger("Buff");
-                        break;
-                    case 3:
-                        animator.SetTrigger("Heavy");
-                        break;
-                }
+                case 4:
+                    animator.SetTrigger("Light");
+                    break;
+                case 1:
+                    animator.SetTrigger("DefendB");
+                    break;
+                case 2:
+                    animator.SetTrigger("Buff");
+                    break;
+                case 3:
+                    animator.SetTrigger("Heavy");
+                    break;
             }
-            else
+        }
+        else
+        {
+            switch (a)
             {
-                switch (a)
-                {
-                    case 4:
-                        animator.SetTrigger("Light");
-                        break;
-                    case 1:
-                        animator.SetTrigger("DefendK");
-                        break;
-                    case 2:
-                        animator.SetTrigger("Buff");
-                        break;
-                    case 3:
-                        animator.SetTrigger("Light");
-                        break;
-                }
+                case 4:
+                    animator.SetTrigger("Light");
+                    break;
+                case 1:
+                    animator.SetTrigger("DefendK");
+                    break;
+                case 2:
+                    animator.SetTrigger("Buff");
+                    break;
+                case 3:
+                    animator.SetTrigger("Light");
+                    break;
             }
+        }
+
+        /*if (NPC.GetComponent<EnemyAI>().battleSystem.State != BattleState.Lost || NPC.GetComponent<EnemyAI>().battleSystem.State != BattleState.Won)
+        {
+            NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Choose an action...";
             NPC.GetComponent<EnemyAI>().battleSystem.State = BattleState.PlayerTurn;
-        //}
+        }*/
     }
 }
