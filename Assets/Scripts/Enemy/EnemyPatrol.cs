@@ -12,6 +12,7 @@ public class EnemyPatrol : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         NPC = animator.gameObject;
+        //Opponent = NPC.GetComponent<EnemyAI>().battleSystem.Player_TPC;
         Opponent = NPC.GetComponent<EnemyAI>().GetPlayer();
     }
 }

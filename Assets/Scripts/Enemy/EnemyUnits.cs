@@ -14,14 +14,15 @@ public class EnemyUnits : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         NPC = animator.gameObject;
-        Opponent = NPC.GetComponent<EnemyAI>().GetPlayer();
-       //BattleSystem = NPC.GetComponent<EnemyAI>().GetBattleSystem();
+        Opponent = NPC.GetComponent<EnemyAI>().battleSystem.Player_GO;
+        //Opponent = NPC.GetComponent<EnemyAI>().GetPlayer();
+        //BattleSystem = NPC.GetComponent<EnemyAI>().GetBattleSystem();
 
         currentHP = NPC.GetComponent<EnemyAI>().CurrentHP;
         maxHP = NPC.GetComponent<EnemyAI>().MaxHP;
         defence = NPC.GetComponent<EnemyAI>().Defence;
     }
-    public bool TakeDamage(float Dmg)
+    /*public bool TakeDamage(float Dmg)
     {
         currentHP -= (Dmg - defence);
 
@@ -31,5 +32,5 @@ public class EnemyUnits : StateMachineBehaviour
             return true;
         else
             return false;
-    }
+    }*/
 }

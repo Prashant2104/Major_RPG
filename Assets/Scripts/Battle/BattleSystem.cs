@@ -32,6 +32,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator BattleSetup()
     {
         Player_GO.GetComponent<PlayerBattleController>().Enemy = Enemy_GO;
+        Player_GO.GetComponent<PlayerBattleController>().battleSystem = this.GetComponent<BattleSystem>();
         Player_GO.SetActive(true);
 
         battleController = Player_GO.GetComponent<PlayerBattleController>();

@@ -21,12 +21,21 @@ public class PlayerBattleController : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        battleSystem = GetComponent<BattleSystem>();
+        //battleSystem = GetComponent<BattleSystem>();
     }
 
     private void OnEnable()
     {
         this.gameObject.transform.position = PlayerOG.transform.position;
         this.transform.LookAt(Enemy.transform);
+    }
+    public bool TakeDamage(float Dmg)
+    {
+        CurrentHP -= (Dmg - Defence);
+
+        if (CurrentHP <= 0)
+            return true;
+        else
+            return false;
     }
 }

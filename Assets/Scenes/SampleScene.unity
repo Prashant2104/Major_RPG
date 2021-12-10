@@ -551,7 +551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 53bd7206d3c780544b3d194c9a55bb87, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 53bd7206d3c780544b3d194c9a55bb87, type: 3}
       propertyPath: m_Controller
@@ -633,11 +633,11 @@ MonoBehaviour:
   PlayerOG: {fileID: 2139669185}
   Enemy: {fileID: 0}
   battleSystem: {fileID: 299212396}
-  MeleeDamage: 0
-  MagicDamage: 0
-  Defence: 0
-  MaxHP: 0
-  CurrentHP: 0
+  MeleeDamage: 10
+  MagicDamage: 10
+  Defence: 5
+  MaxHP: 50
+  CurrentHP: 50
 --- !u!1001 &522657329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1215,11 +1215,11 @@ MonoBehaviour:
   battleSystem: {fileID: 299212396}
   Player: {fileID: 2139669185}
   IsHeavy: 1
-  MeleeDamage: 5
-  MagicDamage: 2
-  Defence: 3
-  MaxHP: 4
-  CurrentHP: 5
+  MeleeDamage: 10
+  MagicDamage: 5
+  Defence: 5
+  MaxHP: 50
+  CurrentHP: 50
   dist: 0
 --- !u!136 &1227942103
 CapsuleCollider:
@@ -1885,7 +1885,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7251080364869544088}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 299212396}
+        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+        m_MethodName: OnLightMagicAttackButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &7251080364869544091
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2611,7 +2623,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7251080365536403043}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 299212396}
+        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+        m_MethodName: OnBuffButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &7251080365536403041
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2933,7 +2957,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7251080365787241092}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 299212396}
+        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+        m_MethodName: OnBuffButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &7251080365787241095
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3513,9 +3549,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 299212396}
         m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
-        m_MethodName: OnMeleeAttackButton
+        m_MethodName: OnLightMeleeAttackButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

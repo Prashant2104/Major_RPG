@@ -15,8 +15,8 @@ public class MeleeAttack : EnemyUnits
 
         a = Random.Range(1, 5);
 
-        if (NPC.GetComponent<EnemyAI>().battleSystem.State == BattleState.EnemyTurn)
-        {
+        //if (NPC.GetComponent<EnemyAI>().battleSystem.State == BattleState.EnemyTurn)
+        //{
             if (NPC.GetComponent<EnemyAI>().IsHeavy)
             {
                 switch (a)
@@ -54,6 +54,6 @@ public class MeleeAttack : EnemyUnits
                 }
             }
             NPC.GetComponent<EnemyAI>().battleSystem.State = BattleState.PlayerTurn;
-        }
+        //}
     }
 }
