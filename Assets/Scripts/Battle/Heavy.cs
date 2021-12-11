@@ -13,7 +13,7 @@ public class Heavy : EnemyUnits
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateExit(animator, stateInfo, layerIndex);
-        Debug.Log("Heavy");
+        animator.SetTrigger("Attack");
         bool isDead = Opponent.GetComponent<PlayerBattleController>().TakeDamage(NPC.GetComponent<EnemyAI>().MeleeDamage * 1.5f);
 
         if (isDead)

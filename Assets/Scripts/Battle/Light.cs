@@ -14,7 +14,7 @@ public class Light : EnemyUnits
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateExit(animator, stateInfo, layerIndex);
-        Debug.Log("Light");
+        animator.SetTrigger("Attack");
         bool isDead = Opponent.GetComponent<PlayerBattleController>().TakeDamage(NPC.GetComponent<EnemyAI>().MeleeDamage);
 
         if(isDead)
