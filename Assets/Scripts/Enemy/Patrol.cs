@@ -17,7 +17,7 @@ public class Patrol : EnemyPatrol
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         NPC = animator.gameObject;
-        currentWP = 0;
+        //currentWP = Random.Range(0, wayPoints.Length);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -28,6 +28,8 @@ public class Patrol : EnemyPatrol
 
         if(Vector3.Distance(wayPoints[currentWP].transform.position, NPC.transform.position) < Accuracy)
         {
+            //currentWP = Random.Range(0, wayPoints.Length);
+
             currentWP++;
             if(currentWP >= wayPoints.Length)
             {

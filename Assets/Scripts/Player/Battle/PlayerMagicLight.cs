@@ -17,7 +17,10 @@ public class PlayerMagicLight : PlayerUnits
         bool isDead = Opponent.GetComponent<EnemyAI>().TakeDamage(Player.GetComponent<PlayerBattleController>().MagicDamage);
 
         if (isDead)
+        {
             Player.GetComponent<PlayerBattleController>().battleSystem.State = BattleState.Won;
+            Player.GetComponent<PlayerBattleController>().battleSystem.EndBattle();
+        }
         else
         {
             Player.GetComponent<PlayerBattleController>().battleSystem.State = BattleState.EnemyTurn;

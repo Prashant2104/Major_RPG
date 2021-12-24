@@ -17,7 +17,10 @@ public class PlayerHeavyMelee : PlayerUnits
         bool isDead = Opponent.GetComponent<EnemyAI>().TakeDamage(Player.GetComponent<PlayerBattleController>().MeleeDamage * 1.5f);
 
         if (isDead)
+        { 
             Player.GetComponent<PlayerBattleController>().battleSystem.State = BattleState.Won;
+            Player.GetComponent<PlayerBattleController>().battleSystem.EndBattle();
+        }
         else
         {
             Player.GetComponent<PlayerBattleController>().battleSystem.State = BattleState.EnemyTurn;
