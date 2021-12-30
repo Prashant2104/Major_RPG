@@ -8,14 +8,14 @@ public class MagicAttack : EnemyUnits
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
-        NPC.transform.LookAt(Opponent.transform.position);
+        ThisEnemy.transform.LookAt(Opponent.transform.position);
         animator.SetBool("Battle", true);
 
-        NPC.GetComponent<EnemyAI>().InBattle();
+        ThisEnemy.GetComponent<EnemyAI>().InBattle();
 
         a = Random.Range(1, 5);
 
-        if (NPC.GetComponent<EnemyAI>().IsHeavy)
+        if (ThisEnemy.GetComponent<EnemyAI>().IsHeavy)
         {
             switch (a)
             {

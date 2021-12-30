@@ -6,12 +6,17 @@ public class EnemyAI : MonoBehaviour
 {
     public BattleSystem battleSystem;
     public GameObject Player;
+
     public bool IsHeavy;
+    public bool IsMelee;
+    public bool IsMagic;
 
     public float MeleeDamage;
     public float MagicDamage;
 
-    public float Defence;
+    public float MeleeDefence;
+    public float MagicDefence;
+
     public float MaxHP;
     public float CurrentHP;
 
@@ -36,9 +41,20 @@ public class EnemyAI : MonoBehaviour
         battleSystem.Enemy_GO = this.gameObject;
         battleSystem.enabled = true;
     }
-    public bool TakeDamage(float dmg)
+    public bool TakeMeleeDamage(float dmg)
     {
-        CurrentHP -= (dmg - Defence);
+        CurrentHP -= (dmg - MeleeDefence);
+
+        battleSystem.EnemyHUD.SetHP(CurrentHP);
+
+        if (CurrentHP <= 0)
+            return true;
+        else
+            return false;
+    }
+    public bool TakeMagicDamage(float dmg)
+    {
+        CurrentHP -= (dmg - MagicDefence);
 
         battleSystem.EnemyHUD.SetHP(CurrentHP);
 

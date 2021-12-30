@@ -9,22 +9,36 @@ public class Defend : EnemyUnits
     {
         timer = 0;
         base.OnStateEnter(animator, stateInfo, layerIndex);
-        NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Enemy used Defence...";
+        ThisEnemy.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Enemy used Defence...";
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timer += Time.deltaTime;
         if(timer >= 1f)
         {
-            NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Enemy's defence increased...";
+            ThisEnemy.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Enemy's defence increased...";
         }
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        NPC.GetComponent<EnemyAI>().Defence += 1.5f;
-        
-        NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Choose an action...";
-        NPC.GetComponent<EnemyAI>().battleSystem.State = BattleState.PlayerTurn;
+        if(ThisEnemy.GetComponent<EnemyAI>().IsMelee && !ThisEnemy.GetComponent<EnemyAI>().IsMagic)
+        {
+            ThisEnemy.GetComponent<EnemyAI>().MeleeDefence += 1.5f;
+            ThisEnemy.GetComponent<EnemyAI>().MagicDefence += 1.0f;
+        }
+        else if (!ThisEnemy.GetComponent<EnemyAI>().IsMelee && ThisEnemy.GetComponent<EnemyAI>().IsMagic)
+        {
+            ThisEnemy.GetComponent<EnemyAI>().MeleeDefence += 1.0f;
+            ThisEnemy.GetComponent<EnemyAI>().MagicDefence += 1.5f;
+        }
+        else if (ThisEnemy.GetComponent<EnemyAI>().IsMelee && ThisEnemy.GetComponent<EnemyAI>().IsMagic)
+        {
+            ThisEnemy.GetComponent<EnemyAI>().MeleeDefence += 1.5f;
+            ThisEnemy.GetComponent<EnemyAI>().MagicDefence += 1.5f;
+        }
+
+        ThisEnemy.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Choose an action...";
+        ThisEnemy.GetComponent<EnemyAI>().battleSystem.State = BattleState.PlayerTurn;
 
         animator.SetTrigger("Attack");
     }

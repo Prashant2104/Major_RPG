@@ -17,7 +17,7 @@ public class PlayerUnits : StateMachineBehaviour
 
         currentHP = Player.GetComponent<PlayerBattleController>().CurrentHP;
         maxHP = Player.GetComponent<PlayerBattleController>().MaxHP;
-        defence = Player.GetComponent<PlayerBattleController>().Defence;
+        defence = Player.GetComponent<PlayerBattleController>().MeleeDefence;
     }
 
     public bool TakeDamage(float Dmg)

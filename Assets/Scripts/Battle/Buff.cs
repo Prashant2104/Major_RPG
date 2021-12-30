@@ -9,23 +9,36 @@ public class Buff : EnemyUnits
     {
         timer = 0;
         base.OnStateEnter(animator, stateInfo, layerIndex);
-        NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Enemy used Buff...";
+        ThisEnemy.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Enemy used Buff...";
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timer += Time.deltaTime;
         if (timer >= 1f)
         {
-            NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Enemy's attack increased...";
+            ThisEnemy.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Enemy's attack increased...";
         }        
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        NPC.GetComponent<EnemyAI>().MeleeDamage += 2.5f;
-        NPC.GetComponent<EnemyAI>().MagicDamage += 2.5f;
-      
-        NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Choose an action...";
-        NPC.GetComponent<EnemyAI>().battleSystem.State = BattleState.PlayerTurn;
+        if (ThisEnemy.GetComponent<EnemyAI>().IsMelee && !ThisEnemy.GetComponent<EnemyAI>().IsMagic)
+        {
+            ThisEnemy.GetComponent<EnemyAI>().MeleeDamage += 2.5f;
+            ThisEnemy.GetComponent<EnemyAI>().MagicDamage += 1.5f;
+        }
+        else if (!ThisEnemy.GetComponent<EnemyAI>().IsMelee && ThisEnemy.GetComponent<EnemyAI>().IsMagic)
+        {
+            ThisEnemy.GetComponent<EnemyAI>().MeleeDamage += 1.5f;
+            ThisEnemy.GetComponent<EnemyAI>().MagicDamage += 2.5f;
+        }
+        else if (ThisEnemy.GetComponent<EnemyAI>().IsMelee && ThisEnemy.GetComponent<EnemyAI>().IsMagic)
+        {
+            ThisEnemy.GetComponent<EnemyAI>().MeleeDamage += 2.5f;
+            ThisEnemy.GetComponent<EnemyAI>().MagicDamage += 2.0f;
+        }
+
+        ThisEnemy.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Choose an action...";
+        ThisEnemy.GetComponent<EnemyAI>().battleSystem.State = BattleState.PlayerTurn;
 
         animator.SetTrigger("Attack");
     }

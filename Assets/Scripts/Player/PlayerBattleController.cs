@@ -12,7 +12,9 @@ public class PlayerBattleController : MonoBehaviour
     public float MeleeDamage;
     public float MagicDamage;
 
-    public float Defence;
+    public float MeleeDefence;
+    public float MagicDefence;
+
     public float MaxHP;
     public float CurrentHP;
 
@@ -29,9 +31,20 @@ public class PlayerBattleController : MonoBehaviour
         this.gameObject.transform.position = PlayerOG.transform.position;
         this.transform.LookAt(Enemy.transform);
     }
-    public bool TakeDamage(float Dmg)
+    public bool TakeMeleeDamage(float Dmg)
     {
-        CurrentHP -= (Dmg - Defence);
+        CurrentHP -= (Dmg - MeleeDefence);
+
+        battleSystem.PlayerHUD.SetHP(CurrentHP);
+
+        if (CurrentHP <= 0)
+            return true;
+        else
+            return false;
+    }
+    public bool TakeMagicDamage(float Dmg)
+    {
+        CurrentHP -= (Dmg - MagicDefence);
 
         battleSystem.PlayerHUD.SetHP(CurrentHP);
 

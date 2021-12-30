@@ -14,7 +14,7 @@ public class PlayerMagicHeavy : PlayerUnits
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        bool isDead = Opponent.GetComponent<EnemyAI>().TakeDamage(Player.GetComponent<PlayerBattleController>().MagicDamage * 1.5f);
+        bool isDead = Opponent.GetComponent<EnemyAI>().TakeMagicDamage(Player.GetComponent<PlayerBattleController>().MagicDamage * 1.5f);
 
         if (isDead)
         { 

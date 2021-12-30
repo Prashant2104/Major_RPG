@@ -716,9 +716,33 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
+      propertyPath: MaxHP
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
       propertyPath: PlayerOG
       value: 
       objectReference: {fileID: 2114427778}
+    - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
+      propertyPath: CurrentHP
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
+      propertyPath: MagicDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
+      propertyPath: MeleeDamage
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
+      propertyPath: MagicDefence
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
+      propertyPath: MeleeDefence
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
       propertyPath: battleSystem
       value: 
@@ -1163,6 +1187,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: MaxHP
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 2114427778}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: IsMagic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: CurrentHP
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: MagicDamage
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: MeleeDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: MagicDefence
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: MeleeDefence
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: battleSystem
+      value: 
+      objectReference: {fileID: 354968650}
     - target: {fileID: 3731008141495725562, guid: 4563e1f35d3836442b2408785006f096, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1210,6 +1270,10 @@ PrefabInstance:
     - target: {fileID: 4074883068198991680, guid: 4563e1f35d3836442b2408785006f096, type: 3}
       propertyPath: m_Name
       value: Magician Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074883068198991680, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4563e1f35d3836442b2408785006f096, type: 3}
@@ -1592,6 +1656,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: MaxHP
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 2114427778}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: IsMagic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: CurrentHP
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: MagicDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: MeleeDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: MagicDefence
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: MeleeDefence
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 223252707, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: battleSystem
+      value: 
+      objectReference: {fileID: 354968650}
     - target: {fileID: 3731008141495725562, guid: 4563e1f35d3836442b2408785006f096, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1639,6 +1739,10 @@ PrefabInstance:
     - target: {fileID: 4074883068198991680, guid: 4563e1f35d3836442b2408785006f096, type: 3}
       propertyPath: m_Name
       value: Magician Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074883068198991680, guid: 4563e1f35d3836442b2408785006f096, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4563e1f35d3836442b2408785006f096, type: 3}
@@ -1934,6 +2038,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: MaxHP
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 2114427778}
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: IsMelee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: CurrentHP
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: MagicDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: MagicDefence
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: MeleeDefence
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: battleSystem
+      value: 
+      objectReference: {fileID: 354968650}
     - target: {fileID: 2524127392788849740, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1981,6 +2117,10 @@ PrefabInstance:
     - target: {fileID: 2903784718823816950, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
       propertyPath: m_Name
       value: Knight Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903784718823816950, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
@@ -3345,9 +3485,49 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2108192279, guid: abb0c85236559aa45a3b74c31b3c642f, type: 3}
+      propertyPath: MaxHP
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108192279, guid: abb0c85236559aa45a3b74c31b3c642f, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 2114427778}
+    - target: {fileID: 2108192279, guid: abb0c85236559aa45a3b74c31b3c642f, type: 3}
+      propertyPath: IsMagic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108192279, guid: abb0c85236559aa45a3b74c31b3c642f, type: 3}
+      propertyPath: CurrentHP
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108192279, guid: abb0c85236559aa45a3b74c31b3c642f, type: 3}
+      propertyPath: MagicDamage
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108192279, guid: abb0c85236559aa45a3b74c31b3c642f, type: 3}
+      propertyPath: MeleeDamage
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108192279, guid: abb0c85236559aa45a3b74c31b3c642f, type: 3}
+      propertyPath: MagicDefence
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108192279, guid: abb0c85236559aa45a3b74c31b3c642f, type: 3}
+      propertyPath: MeleeDefence
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108192279, guid: abb0c85236559aa45a3b74c31b3c642f, type: 3}
+      propertyPath: battleSystem
+      value: 
+      objectReference: {fileID: 354968650}
     - target: {fileID: 8358861102021447121, guid: abb0c85236559aa45a3b74c31b3c642f, type: 3}
       propertyPath: m_Name
       value: EvilWizard Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358861102021447121, guid: abb0c85236559aa45a3b74c31b3c642f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9172551844954756971, guid: abb0c85236559aa45a3b74c31b3c642f, type: 3}
       propertyPath: m_RootOrder
@@ -3977,6 +4157,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: MaxHP
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 2114427778}
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: IsMelee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: CurrentHP
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: MagicDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: MeleeDamage
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: MagicDefence
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: MeleeDefence
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 387327409, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: battleSystem
+      value: 
+      objectReference: {fileID: 354968650}
     - target: {fileID: 2524127392788849740, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -4024,6 +4240,10 @@ PrefabInstance:
     - target: {fileID: 2903784718823816950, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
       propertyPath: m_Name
       value: Knight Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903784718823816950, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65280cbec0566b649a0e2ad44d9a160b, type: 3}
@@ -4450,9 +4670,49 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: MaxHP
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 2114427778}
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: IsMelee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: CurrentHP
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: MagicDamage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: MeleeDamage
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: MagicDefence
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: MeleeDefence
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: battleSystem
+      value: 
+      objectReference: {fileID: 354968650}
     - target: {fileID: 5031992367098049091, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
       propertyPath: m_Name
       value: Brawler_Axe Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5031992367098049091, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5665223531024836857, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
       propertyPath: m_RootOrder
@@ -4639,9 +4899,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: MaxHP
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 2114427778}
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: IsMelee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: CurrentHP
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: MagicDamage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: MagicDefence
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: MeleeDefence
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227942102, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: battleSystem
+      value: 
+      objectReference: {fileID: 354968650}
     - target: {fileID: 5031992367098049091, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
       propertyPath: m_Name
       value: Brawler_Axe Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5031992367098049091, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5665223531024836857, guid: afa02c1d7f7da2c40850dd6b46c796fb, type: 3}
       propertyPath: m_RootOrder

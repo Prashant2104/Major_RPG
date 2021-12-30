@@ -14,7 +14,7 @@ public class PlayerLightMelee : PlayerUnits
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        bool isDead = Opponent.GetComponent<EnemyAI>().TakeDamage(Player.GetComponent<PlayerBattleController>().MeleeDamage);
+        bool isDead = Opponent.GetComponent<EnemyAI>().TakeMeleeDamage(Player.GetComponent<PlayerBattleController>().MeleeDamage);
 
         if (isDead)
         {

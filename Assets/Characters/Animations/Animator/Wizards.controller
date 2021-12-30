@@ -115,6 +115,21 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-3738647570906100768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac8d4652e17c7843b568257cfb4ba5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ThisEnemy: {fileID: 0}
+  Opponent: {fileID: 0}
+  a: 0
 --- !u!1101 &-2639793209840449597
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -234,21 +249,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!114 &-1399313847523080957
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a140b8e690ce14c8319fd70a7b13d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPC: {fileID: 0}
-  Opponent: {fileID: 0}
-  a: 0
 --- !u!1102 &-1118615939891202023
 AnimatorState:
   serializedVersion: 6
@@ -262,7 +262,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: -2166558512023058605}
   m_StateMachineBehaviours:
-  - {fileID: 7395562100294368650}
+  - {fileID: 7212731106504746889}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -387,20 +387,6 @@ MonoBehaviour:
   Speed: 5
   RotSpeed: 10
   Accuracy: 1
---- !u!114 &442891828529888823
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fc104598c8c1554ba72aba8cbbc30bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPC: {fileID: 0}
-  Opponent: {fileID: 0}
 --- !u!1101 &455231044041056602
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -435,9 +421,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 766fc2df81581674eb792c8e8e9f3461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPC: {fileID: 0}
+  ThisEnemy: {fileID: 0}
   Opponent: {fileID: 0}
   timer: 0
+--- !u!114 &1003570337589558939
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f59dcf45257a018428f9599b6586f70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ThisEnemy: {fileID: 0}
+  Opponent: {fileID: 0}
 --- !u!1101 &1595712366626322001
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -562,7 +562,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: 455231044041056602}
   m_StateMachineBehaviours:
-  - {fileID: 442891828529888823}
+  - {fileID: 1003570337589558939}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -615,7 +615,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: 2286140307265825191}
   m_StateMachineBehaviours:
-  - {fileID: -1399313847523080957}
+  - {fileID: -3738647570906100768}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -692,7 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb3d9483cfa0804199bba651005f1e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPC: {fileID: 0}
+  ThisEnemy: {fileID: 0}
   Opponent: {fileID: 0}
   timer: 0
 --- !u!1102 &6408025240530254970
@@ -723,7 +723,7 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!114 &7395562100294368650
+--- !u!114 &7212731106504746889
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -732,10 +732,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74af8c568c1027540994beb126d8be6b, type: 3}
+  m_Script: {fileID: 11500000, guid: f4ad781af61733a4caadd5f07f37fba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPC: {fileID: 0}
+  ThisEnemy: {fileID: 0}
   Opponent: {fileID: 0}
 --- !u!1101 &8153260831145735924
 AnimatorStateTransition:

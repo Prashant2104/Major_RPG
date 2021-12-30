@@ -14,7 +14,7 @@ public class PlayerMagicLight : PlayerUnits
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        bool isDead = Opponent.GetComponent<EnemyAI>().TakeDamage(Player.GetComponent<PlayerBattleController>().MagicDamage);
+        bool isDead = Opponent.GetComponent<EnemyAI>().TakeMagicDamage(Player.GetComponent<PlayerBattleController>().MagicDamage);
 
         if (isDead)
         {
