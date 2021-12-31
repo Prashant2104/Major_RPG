@@ -15,12 +15,38 @@ MonoBehaviour:
   battleSystem: {fileID: 0}
   Player: {fileID: 0}
   IsHeavy: 1
+  IsMelee: 0
+  IsMagic: 0
   MeleeDamage: 5
   MagicDamage: 10
-  Defence: 5
+  MeleeDefence: 0
+  MagicDefence: 0
   MaxHP: 50
   CurrentHP: 50
+  agent: {fileID: 0}
   dist: 0
+--- !u!195 &5309299272859894992
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8358861102021447121}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 7
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &8701458277543489664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74,7 +100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: da74b5d4d33c99e4382ec23d8ec44f98, type: 3}
       propertyPath: m_Name
-      value: EvilWizard
+      value: EvilWizard Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: da74b5d4d33c99e4382ec23d8ec44f98, type: 3}
       propertyPath: m_IsActive

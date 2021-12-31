@@ -1373,15 +1373,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2434827486404592964, guid: 4c15c8cf97f90f5448d9c71653cf955a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.78
+      value: -55.994
       objectReference: {fileID: 0}
     - target: {fileID: 2434827486404592964, guid: 4c15c8cf97f90f5448d9c71653cf955a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2434827486404592964, guid: 4c15c8cf97f90f5448d9c71653cf955a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.97
+      value: 4.972
       objectReference: {fileID: 0}
     - target: {fileID: 2434827486404592964, guid: 4c15c8cf97f90f5448d9c71653cf955a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4404,7 +4404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDirty: 0
   _preset: 1000
-  _profile: {fileID: 0}
+  _profile: {fileID: 11400000, guid: 55163c492d1632d41b60e1bf0590c60c, type: 2}
   _profileSync: 0
   _useFogVolumes: 1
   _debugPass: 0
@@ -4660,7 +4660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1582621318
 Transform:
   m_ObjectHideFlags: 0

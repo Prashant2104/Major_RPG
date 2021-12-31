@@ -26,27 +26,28 @@ public class Inventory : MonoBehaviour
     public void HealthAdd()
     {
         HealthPotion++;
-        Slots[1].GetComponent<Text>().text = HealthPotion.ToString();
+        Player.GetComponent<PlayerBattleController>().MaxHP += 10;
+        Player.GetComponent<PlayerBattleController>().CurrentHP += 10;
     }
     public void MeleeDefenceAdd()
     {
         MeleeDefencePotion++;
-        Slots[2].GetComponent<Text>().text = MeleeDefencePotion.ToString();
+        Player.GetComponent<PlayerBattleController>().MeleeDefence += 2;
     }
     public void MagicDefenceAdd()
     {
         MeleeDefencePotion++;
-        Slots[3].GetComponent<Text>().text = MagicDefencePotion.ToString();
+        Player.GetComponent<PlayerBattleController>().MagicDefence += 1.5f;
     }
     public void MeleeAttackAdd()
     {
         MeleeAttackPotion++;
-        Slots[4].GetComponent<Text>().text = MeleeAttackPotion.ToString();
+        Player.GetComponent<PlayerBattleController>().MeleeDamage += 2;
     }
     public void MagicAttackAdd()
     {
         MeleeAttackPotion++;
-        Slots[5].GetComponent<Text>().text = MagicAttackPotion.ToString();
+        Player.GetComponent<PlayerBattleController>().MagicDamage += 1.5f;
     }
 
     public void HealButton()
@@ -57,26 +58,5 @@ public class Inventory : MonoBehaviour
         {
             Player.GetComponent<PlayerBattleController>().CurrentHP = Player.GetComponent<PlayerBattleController>().MaxHP;
         }
-    }
-    public void HealthButton()
-    {
-        Player.GetComponent<PlayerBattleController>().MaxHP += 10;
-        Player.GetComponent<PlayerBattleController>().CurrentHP += 10;
-    }
-    public void MeleeDefenceButton()
-    {
-        Player.GetComponent<PlayerBattleController>().MeleeDefence += 2;
-    }
-    public void MagicDefenceButton()
-    {
-        Player.GetComponent<PlayerBattleController>().MagicDefence += 1.5f;
-    }
-    public void MeleeAttackButton()
-    {
-        Player.GetComponent<PlayerBattleController>().MeleeDamage += 2;
-    }
-    public void MagicAttackButton()
-    {
-        Player.GetComponent<PlayerBattleController>().MagicDamage += 1.5f;
     }
 }

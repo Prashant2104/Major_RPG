@@ -29,12 +29,38 @@ MonoBehaviour:
   battleSystem: {fileID: 0}
   Player: {fileID: 0}
   IsHeavy: 0
+  IsMelee: 0
+  IsMagic: 0
   MeleeDamage: 6
   MagicDamage: 7
-  Defence: 8
+  MeleeDefence: 0
+  MagicDefence: 0
   MaxHP: 10
   CurrentHP: 10
+  agent: {fileID: 0}
   dist: 0
+--- !u!195 &8548275387725541869
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2903784718823816950}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 7
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &2633824033434387367
 PrefabInstance:
   m_ObjectHideFlags: 0

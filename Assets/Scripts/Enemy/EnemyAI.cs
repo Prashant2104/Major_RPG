@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -21,11 +22,13 @@ public class EnemyAI : MonoBehaviour
     public float CurrentHP;
 
     private Animator anim;
+    public NavMeshAgent agent;
     [SerializeField] float dist;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
     }
     private void Update()
     {
