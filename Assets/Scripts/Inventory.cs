@@ -20,7 +20,7 @@ public class Inventory : MonoBehaviour
 
     public void HealAdd()
     {
-        HealthPotion++;
+        HealPotion++;
         Slots[0].GetComponent<Text>().text = HealPotion.ToString();
     }
     public void HealthAdd()
@@ -53,6 +53,7 @@ public class Inventory : MonoBehaviour
     public void HealButton()
     {
         Player.GetComponent<PlayerBattleController>().CurrentHP += 15;
+        HealPotion--;
 
         if (Player.GetComponent<PlayerBattleController>().CurrentHP > Player.GetComponent<PlayerBattleController>().MaxHP)
         {

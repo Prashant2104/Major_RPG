@@ -16,8 +16,11 @@ public class BattleSystem : MonoBehaviour
 
     public PlayerBattleHUD PlayerHUD;
     public EnemyBattleHUD EnemyHUD;
+    public Inventory inventory;
 
     public Text DialogueText;
+    public Button Attack, Special;
+    public GameObject ChoicePanel, AttackPanel, SpecialPanel;
 
     PlayerBattleController battleController;
     EnemyAI enemyUnits;
@@ -26,6 +29,9 @@ public class BattleSystem : MonoBehaviour
     {
         State = BattleState.Start;
         BattleHUD.SetActive(true);
+        ChoicePanel.SetActive(true);
+        AttackPanel.SetActive(false);
+        SpecialPanel.SetActive(false);
         StartCoroutine(BattleSetup());
     }
     
@@ -54,43 +60,80 @@ public class BattleSystem : MonoBehaviour
     {
         DialogueText.text = "Choose an action...";
     }
+    public void OnAttackChoice()
+    {
+        ChoicePanel.SetActive(false);
+        AttackPanel.SetActive(true);
+    }
+    public void OnSpecialChoice()
+    {
+        ChoicePanel.SetActive(false);
+        SpecialPanel.SetActive(true);
+    }
     public void OnLightMeleeAttackButton()
     {
         if (State != BattleState.PlayerTurn)
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("LightMelee");
+
+        ChoicePanel.SetActive(true);
+        AttackPanel.SetActive(false);
     }
     public void OnHeavyMeleeAttackButton()
     {
         if (State != BattleState.PlayerTurn)
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("HeavyMelee");
+
+        ChoicePanel.SetActive(true);
+        AttackPanel.SetActive(false);
     }
     public void OnLightMagicAttackButton()
     {
         if (State != BattleState.PlayerTurn)
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("LightMagic");
+
+        ChoicePanel.SetActive(true);
+        AttackPanel.SetActive(false);
     }
     public void OnHeavyMagicAttackButton()
     {
         if (State != BattleState.PlayerTurn)
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("HeavyMagic");
+
+        ChoicePanel.SetActive(true);
+        AttackPanel.SetActive(false);
     }
     public void OnBuffButton()
     {
         if (State != BattleState.PlayerTurn)
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("Buff");
+
+        ChoicePanel.SetActive(true);
+        SpecialPanel.SetActive(false);
     }
     public void OnDefendButton()
     {
         if (State != BattleState.PlayerTurn)
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("Defend");
-    }
 
+        ChoicePanel.SetActive(true);
+        SpecialPanel.SetActive(false);
+    }
+    public void OnHealButton()
+    {
+        if (State != BattleState.PlayerTurn)
+            return;
+        Player_GO.GetComponent<Animator>().SetTrigger("Heal");
+        inventory.HealButton();
+
+        ChoicePanel.SetActive(true);
+        SpecialPanel.SetActive(false);
+    }
     public void EnemyTurn()
     {
         DialogueText.text = "Enemy attacks...";
@@ -106,24 +149,23 @@ public class BattleSystem : MonoBehaviour
         else if (State == BattleState.Lost)
         {
             DialogueText.text = "lost";
-            StartCoroutine(Lost());
+            Lost();
         }
     }
 
     IEnumerator Win()
     {
+        DialogueText.text = "You win";
+        Enemy_GO.GetComponent<Animator>().SetTrigger("Death");
         yield return new WaitForSeconds(0.5f);
-        Destroy(Enemy_GO);
         BattleHUD.SetActive(false);
         Player_GO.SetActive(false);
         Player_TPC.SetActive(true);
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.5f);
         GetComponent<BattleSystem>().enabled = false;
     }
-
-    IEnumerator Lost()
+    void Lost()
     {
-        yield return new WaitForSeconds(1f);
-        Debug.Break();
+        Player_GO.GetComponent<Animator>().SetTrigger("Death");
     }
 }
