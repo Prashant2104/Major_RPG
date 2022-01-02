@@ -126,10 +126,11 @@ public class BattleSystem : MonoBehaviour
     }
     public void OnHealButton()
     {
-        if (State != BattleState.PlayerTurn)
+        if (State != BattleState.PlayerTurn || inventory.HealPotion < 1)
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("Heal");
-        inventory.HealButton();
+
+        PlayerHUD.SetHUD(battleController);
 
         ChoicePanel.SetActive(true);
         SpecialPanel.SetActive(false);

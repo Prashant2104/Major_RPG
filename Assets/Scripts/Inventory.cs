@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    public GameObject[] Slots;
+    public Text[] Slots;
 
     public int HealPotion;
     public int HealthPotion;
@@ -21,13 +21,14 @@ public class Inventory : MonoBehaviour
     public void HealAdd()
     {
         HealPotion++;
-        Slots[0].GetComponent<Text>().text = HealPotion.ToString();
+        Slots[0].text = HealPotion.ToString();
     }
     public void HealthAdd()
     {
         HealthPotion++;
-        Player.GetComponent<PlayerBattleController>().MaxHP += 10;
-        Player.GetComponent<PlayerBattleController>().CurrentHP += 10;
+        Player.GetComponent<PlayerBattleController>().MaxHP += 5;
+        Player.GetComponent<PlayerBattleController>().CurrentHP += 5;
+        Slots[1].text = Player.GetComponent<PlayerBattleController>().CurrentHP + "/" + Player.GetComponent<PlayerBattleController>().MaxHP;
     }
     public void MeleeDefenceAdd()
     {
@@ -36,7 +37,7 @@ public class Inventory : MonoBehaviour
     }
     public void MagicDefenceAdd()
     {
-        MeleeDefencePotion++;
+        MagicDefencePotion++;
         Player.GetComponent<PlayerBattleController>().MagicDefence += 1.5f;
     }
     public void MeleeAttackAdd()
@@ -46,18 +47,22 @@ public class Inventory : MonoBehaviour
     }
     public void MagicAttackAdd()
     {
-        MeleeAttackPotion++;
+        MagicAttackPotion++;
         Player.GetComponent<PlayerBattleController>().MagicDamage += 1.5f;
     }
 
     public void HealButton()
     {
-        Player.GetComponent<PlayerBattleController>().CurrentHP += 15;
-        HealPotion--;
-
-        if (Player.GetComponent<PlayerBattleController>().CurrentHP > Player.GetComponent<PlayerBattleController>().MaxHP)
+        if(HealPotion >= 1)
         {
-            Player.GetComponent<PlayerBattleController>().CurrentHP = Player.GetComponent<PlayerBattleController>().MaxHP;
+            Player.GetComponent<PlayerBattleController>().CurrentHP += 15;
+            //Player.GetComponent<PlayerBattleController>().SetHUD();
+            HealPotion--;
+
+            if (Player.GetComponent<PlayerBattleController>().CurrentHP > Player.GetComponent<PlayerBattleController>().MaxHP)
+            {
+                Player.GetComponent<PlayerBattleController>().CurrentHP = Player.GetComponent<PlayerBattleController>().MaxHP;
+            }
         }
     }
 }

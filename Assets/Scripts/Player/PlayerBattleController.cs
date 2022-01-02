@@ -53,4 +53,8 @@ public class PlayerBattleController : MonoBehaviour
         else
             return false;
     }
+    public void SetHUD()
+    {
+        battleSystem.PlayerHUD.SetHP(CurrentHP);
+    }
 }
