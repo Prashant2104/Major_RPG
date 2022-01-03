@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public enum BattleState { Start, PlayerTurn, EnemyTurn, Won, Lost }
 public class BattleSystem : MonoBehaviour
@@ -19,7 +20,6 @@ public class BattleSystem : MonoBehaviour
     public Inventory inventory;
 
     public Text DialogueText;
-    public Button Attack, Special;
     public GameObject ChoicePanel, AttackPanel, SpecialPanel;
 
     PlayerBattleController battleController;
@@ -63,12 +63,29 @@ public class BattleSystem : MonoBehaviour
     public void OnAttackChoice()
     {
         ChoicePanel.SetActive(false);
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(AttackPanel.transform.GetChild(0).gameObject);
+
         AttackPanel.SetActive(true);
     }
     public void OnSpecialChoice()
     {
         ChoicePanel.SetActive(false);
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(SpecialPanel.transform.GetChild(0).gameObject);
+
         SpecialPanel.SetActive(true);
+    }
+    public void OnBackButton()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
+
+        ChoicePanel.SetActive(true);
+        AttackPanel.SetActive(false);
+        SpecialPanel.SetActive(false);
     }
     public void OnLightMeleeAttackButton()
     {
@@ -76,6 +93,8 @@ public class BattleSystem : MonoBehaviour
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("LightMelee");
 
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
         ChoicePanel.SetActive(true);
         AttackPanel.SetActive(false);
     }
@@ -85,6 +104,8 @@ public class BattleSystem : MonoBehaviour
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("HeavyMelee");
 
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
         ChoicePanel.SetActive(true);
         AttackPanel.SetActive(false);
     }
@@ -94,6 +115,8 @@ public class BattleSystem : MonoBehaviour
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("LightMagic");
 
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
         ChoicePanel.SetActive(true);
         AttackPanel.SetActive(false);
     }
@@ -103,6 +126,8 @@ public class BattleSystem : MonoBehaviour
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("HeavyMagic");
 
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
         ChoicePanel.SetActive(true);
         AttackPanel.SetActive(false);
     }
@@ -112,6 +137,8 @@ public class BattleSystem : MonoBehaviour
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("Buff");
 
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
         ChoicePanel.SetActive(true);
         SpecialPanel.SetActive(false);
     }
@@ -119,8 +146,14 @@ public class BattleSystem : MonoBehaviour
     {
         if (State != BattleState.PlayerTurn)
             return;
+        if (Player_GO.GetComponent<PlayerBattleController>().MagicDefence + 1 >= Enemy_GO.GetComponent<EnemyAI>().MagicDamage ||
+            Player_GO.GetComponent<PlayerBattleController>().MeleeDefence + 1 >= Enemy_GO.GetComponent<EnemyAI>().MeleeDamage)
+            return;
+
         Player_GO.GetComponent<Animator>().SetTrigger("Defend");
 
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
         ChoicePanel.SetActive(true);
         SpecialPanel.SetActive(false);
     }
@@ -132,6 +165,8 @@ public class BattleSystem : MonoBehaviour
 
         PlayerHUD.SetHUD(battleController);
 
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
         ChoicePanel.SetActive(true);
         SpecialPanel.SetActive(false);
     }
@@ -150,7 +185,7 @@ public class BattleSystem : MonoBehaviour
         else if (State == BattleState.Lost)
         {
             DialogueText.text = "lost";
-            Lost();
+            StartCoroutine(Lost());
         }
     }
 
@@ -165,8 +200,13 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         GetComponent<BattleSystem>().enabled = false;
     }
-    void Lost()
+    IEnumerator Lost()
     {
+        DialogueText.text = "You Lost";
         Player_GO.GetComponent<Animator>().SetTrigger("Death");
+        yield return new WaitForSeconds(0.5f);
+        BattleHUD.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<BattleSystem>().enabled = false;
     }
 }

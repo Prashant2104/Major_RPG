@@ -7,23 +7,24 @@ public class EnemyAI : MonoBehaviour
 {
     public BattleSystem battleSystem;
     public GameObject Player;
+    private Animator anim;
+    public NavMeshAgent agent;
+    [SerializeField] float dist;
 
+    [Header("Class")]
     public bool IsHeavy;
     public bool IsMelee;
     public bool IsMagic;
 
+    [Header("Stats")]
     public float MeleeDamage;
     public float MagicDamage;
-
     public float MeleeDefence;
     public float MagicDefence;
 
+    [Header("Health")]
     public float MaxHP;
     public float CurrentHP;
-
-    private Animator anim;
-    public NavMeshAgent agent;
-    [SerializeField] float dist;
 
     private void Awake()
     {

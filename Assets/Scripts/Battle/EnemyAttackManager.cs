@@ -14,6 +14,14 @@ public class EnemyAttackManager : EnemyUnits
         ThisEnemy.GetComponent<EnemyAI>().InBattle();
 
         a = Random.Range(1, 5);
+        if (a == 1)
+        {
+            if (ThisEnemy.GetComponent<EnemyAI>().MeleeDefence + 1.5f >= Opponent.GetComponent<PlayerBattleController>().MeleeDamage ||
+                        ThisEnemy.GetComponent<EnemyAI>().MagicDefence + 1.5f >= Opponent.GetComponent<PlayerBattleController>().MagicDamage)
+            {
+                a = 4;
+            }
+        }        
 
         if (ThisEnemy.GetComponent<EnemyAI>().IsMelee && !ThisEnemy.GetComponent<EnemyAI>().IsMagic)
         {
@@ -119,5 +127,9 @@ public class EnemyAttackManager : EnemyUnits
             NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Choose an action...";
             NPC.GetComponent<EnemyAI>().battleSystem.State = BattleState.PlayerTurn;
         }*/
+    }
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        ThisEnemy.transform.LookAt(Opponent.transform.position);
     }
 }

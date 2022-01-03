@@ -23,18 +23,18 @@ public class Buff : EnemyUnits
     {
         if (ThisEnemy.GetComponent<EnemyAI>().IsMelee && !ThisEnemy.GetComponent<EnemyAI>().IsMagic)
         {
-            ThisEnemy.GetComponent<EnemyAI>().MeleeDamage += 2.5f;
-            ThisEnemy.GetComponent<EnemyAI>().MagicDamage += 1.5f;
+            ThisEnemy.GetComponent<EnemyAI>().MeleeDamage += 1.0f;
+            ThisEnemy.GetComponent<EnemyAI>().MagicDamage += 0.5f;
         }
         else if (!ThisEnemy.GetComponent<EnemyAI>().IsMelee && ThisEnemy.GetComponent<EnemyAI>().IsMagic)
         {
-            ThisEnemy.GetComponent<EnemyAI>().MeleeDamage += 1.5f;
-            ThisEnemy.GetComponent<EnemyAI>().MagicDamage += 2.5f;
+            ThisEnemy.GetComponent<EnemyAI>().MeleeDamage += 0.5f;
+            ThisEnemy.GetComponent<EnemyAI>().MagicDamage += 1.0f;
         }
         else if (ThisEnemy.GetComponent<EnemyAI>().IsMelee && ThisEnemy.GetComponent<EnemyAI>().IsMagic)
         {
-            ThisEnemy.GetComponent<EnemyAI>().MeleeDamage += 2.5f;
-            ThisEnemy.GetComponent<EnemyAI>().MagicDamage += 2.0f;
+            ThisEnemy.GetComponent<EnemyAI>().MeleeDamage += 1.0f;
+            ThisEnemy.GetComponent<EnemyAI>().MagicDamage += 1.0f;
         }
 
         ThisEnemy.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Choose an action...";

@@ -281,6 +281,74 @@ public class @ThirdPersonPlayerController : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""0b012ee8-adbe-45e8-a20d-921700f5f1e6"",
+            ""actions"": [
+                {
+                    ""name"": ""ShowStats"",
+                    ""type"": ""Button"",
+                    ""id"": ""82e7cff1-b7d8-49b1-8e81-a97c0010b2dc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Heal"",
+                    ""type"": ""Button"",
+                    ""id"": ""4ae31cad-078c-4fe4-a016-49fdf0e67b05"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""52bb9e41-e0c3-40a6-8663-504876cfd627"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShowStats"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9516692-646d-49f8-8c4f-cad0733bc792"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShowStats"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f16e5c8d-0b78-464a-90e7-0ceb5ddcea2f"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Heal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e83185fb-c8d7-4a32-8f4f-3072db84733d"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Heal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -293,6 +361,10 @@ public class @ThirdPersonPlayerController : IInputActionCollection, IDisposable
         m_PlayerActions = asset.FindActionMap("PlayerActions", throwIfNotFound: true);
         m_PlayerActions_Sprint = m_PlayerActions.FindAction("Sprint", throwIfNotFound: true);
         m_PlayerActions_Jump = m_PlayerActions.FindAction("Jump", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_ShowStats = m_UI.FindAction("ShowStats", throwIfNotFound: true);
+        m_UI_Heal = m_UI.FindAction("Heal", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -420,6 +492,47 @@ public class @ThirdPersonPlayerController : IInputActionCollection, IDisposable
         }
     }
     public PlayerActionsActions @PlayerActions => new PlayerActionsActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_ShowStats;
+    private readonly InputAction m_UI_Heal;
+    public struct UIActions
+    {
+        private @ThirdPersonPlayerController m_Wrapper;
+        public UIActions(@ThirdPersonPlayerController wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ShowStats => m_Wrapper.m_UI_ShowStats;
+        public InputAction @Heal => m_Wrapper.m_UI_Heal;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @ShowStats.started -= m_Wrapper.m_UIActionsCallbackInterface.OnShowStats;
+                @ShowStats.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnShowStats;
+                @ShowStats.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnShowStats;
+                @Heal.started -= m_Wrapper.m_UIActionsCallbackInterface.OnHeal;
+                @Heal.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnHeal;
+                @Heal.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnHeal;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @ShowStats.started += instance.OnShowStats;
+                @ShowStats.performed += instance.OnShowStats;
+                @ShowStats.canceled += instance.OnShowStats;
+                @Heal.started += instance.OnHeal;
+                @Heal.performed += instance.OnHeal;
+                @Heal.canceled += instance.OnHeal;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IPlayerMovementActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -429,5 +542,10 @@ public class @ThirdPersonPlayerController : IInputActionCollection, IDisposable
     {
         void OnSprint(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnShowStats(InputAction.CallbackContext context);
+        void OnHeal(InputAction.CallbackContext context);
     }
 }

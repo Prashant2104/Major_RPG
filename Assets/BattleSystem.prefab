@@ -50,4 +50,10 @@ MonoBehaviour:
   BattleHUD: {fileID: 0}
   PlayerHUD: {fileID: 0}
   EnemyHUD: {fileID: 0}
+  inventory: {fileID: 0}
   DialogueText: {fileID: 0}
+  Attack: {fileID: 0}
+  Special: {fileID: 0}
+  ChoicePanel: {fileID: 0}
+  AttackPanel: {fileID: 0}
+  SpecialPanel: {fileID: 0}

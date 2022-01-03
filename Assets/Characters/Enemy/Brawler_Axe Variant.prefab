@@ -24,7 +24,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 0
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -51,14 +51,14 @@ MonoBehaviour:
   battleSystem: {fileID: 0}
   Player: {fileID: 0}
   IsHeavy: 1
-  IsMelee: 0
+  IsMelee: 1
   IsMagic: 0
   MeleeDamage: 10
-  MagicDamage: 5
-  MeleeDefence: 0
-  MagicDefence: 0
-  MaxHP: 10
-  CurrentHP: 10
+  MagicDamage: 2
+  MeleeDefence: 7
+  MagicDefence: 4
+  MaxHP: 35
+  CurrentHP: 35
   agent: {fileID: 0}
   dist: 0
 --- !u!1001 &5265925898293874450
@@ -74,31 +74,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d85fae6346f69f34b89c0cff83c8989c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.75
+      value: -55.739998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d85fae6346f69f34b89c0cff83c8989c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000047683716
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d85fae6346f69f34b89c0cff83c8989c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.2
+      value: 19.390001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d85fae6346f69f34b89c0cff83c8989c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.27960077
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d85fae6346f69f34b89c0cff83c8989c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d85fae6346f69f34b89c0cff83c8989c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.9601163
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d85fae6346f69f34b89c0cff83c8989c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d85fae6346f69f34b89c0cff83c8989c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -106,7 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d85fae6346f69f34b89c0cff83c8989c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -147.527
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d85fae6346f69f34b89c0cff83c8989c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

@@ -21,8 +21,8 @@ public class PlayerBuff : PlayerUnits
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Player.GetComponent<PlayerBattleController>().MeleeDamage += 1.5f;
-        Player.GetComponent<PlayerBattleController>().MagicDamage += 1.5f;
+        Player.GetComponent<PlayerBattleController>().MeleeDamage += 0.75f;
+        Player.GetComponent<PlayerBattleController>().MagicDamage += 0.75f;
 
         Player.GetComponent<PlayerBattleController>().battleSystem.State = BattleState.EnemyTurn;
         Player.GetComponent<PlayerBattleController>().battleSystem.EnemyTurn();

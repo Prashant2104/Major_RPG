@@ -23,6 +23,8 @@ public class InputManager : MonoBehaviour
     public float cameraInputX;
     public float cameraInputY;
 
+    public Inventory Stats;
+
     private void Awake()
     {
         animatorManager = GetComponent<AnimatorManager>();
@@ -42,6 +44,11 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerActions.Sprint.canceled += i => SprintInput = false;
 
             playerControls.PlayerActions.Jump.performed += i => JumpInput = true;
+
+            playerControls.UI.ShowStats.performed += i => Stats.EnableStats();
+            playerControls.UI.ShowStats.canceled += i => Stats.DisableStats();
+
+            playerControls.UI.Heal.performed += i => Stats.HealButton();
         }
         playerControls.Enable();
     }

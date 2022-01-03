@@ -6,19 +6,25 @@ public class PlayerBattleController : MonoBehaviour
 {
     public GameObject PlayerOG;
     public GameObject Enemy;
-
     public BattleSystem battleSystem;
 
+    private Animator anim;
+
+    [Header("Battle Stats")]
     public float MeleeDamage;
     public float MagicDamage;
-
     public float MeleeDefence;
     public float MagicDefence;
 
+    [Header("Actual Stats")]
+    public float MeleeDam;
+    public float MagicDam;
+    public float MeleeDef;
+    public float MagicDef;
+
+    [Header("Health")]
     public float MaxHP;
     public float CurrentHP;
-
-    private Animator anim;
 
     private void Start()
     {
@@ -28,6 +34,11 @@ public class PlayerBattleController : MonoBehaviour
 
     private void OnEnable()
     {
+        MeleeDamage = MeleeDam;
+        MeleeDefence = MeleeDef;
+        MagicDamage = MagicDam;
+        MagicDefence = MagicDef;
+
         this.gameObject.transform.position = PlayerOG.transform.position;
         this.transform.LookAt(Enemy.transform);
     }
@@ -53,7 +64,7 @@ public class PlayerBattleController : MonoBehaviour
         else
             return false;
     }
-    public void SetHUD()
+    public void HUD()
     {
         battleSystem.PlayerHUD.SetHP(CurrentHP);
     }
