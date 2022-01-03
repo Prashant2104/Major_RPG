@@ -1,0 +1,44 @@
+{
+    "name": "UIControl",
+    "maps": [
+        {
+            "name": "General",
+            "id": "0e285485-5561-4cd2-9169-737854d9b4b3",
+            "actions": [
+                {
+                    "name": "Stats",
+                    "type": "Button",
+                    "id": "7412c3da-c7c9-41ff-8e31-78994e3a3dfd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3afc0af5-72b5-4b97-b407-b28808635030",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stats",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bb528292-f760-4cad-90df-3e0d1cd2c493",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stats",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
