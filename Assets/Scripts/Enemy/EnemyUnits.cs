@@ -16,6 +16,7 @@ public class EnemyUnits : StateMachineBehaviour
     {
         ThisEnemy = animator.gameObject;
         Opponent = ThisEnemy.GetComponent<EnemyAI>().battleSystem.Player_GO;
+
         //Opponent = NPC.GetComponent<EnemyAI>().GetPlayer();
         //BattleSystem = NPC.GetComponent<EnemyAI>().GetBattleSystem();
 

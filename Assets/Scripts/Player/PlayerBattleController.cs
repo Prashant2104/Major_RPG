@@ -26,6 +26,15 @@ public class PlayerBattleController : MonoBehaviour
     public float MaxHP;
     public float CurrentHP;
 
+    [Header("Particle System")]
+    public ParticleSystem OnAwake;
+    public ParticleSystem MeleeLightAttack;
+    public ParticleSystem MeleeHeavyAttack;
+    public ParticleSystem MagicLightAttack;
+    public ParticleSystem MagicHeavyAttack;
+    public ParticleSystem Defence;
+    public ParticleSystem Buff;
+
     private void Start()
     {
         anim = GetComponent<Animator>();

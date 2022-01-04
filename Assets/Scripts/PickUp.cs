@@ -17,7 +17,7 @@ public class PickUp : MonoBehaviour
 
     private void FixedUpdate()
     {
-        this.transform.Rotate(new Vector3(10, 75, 0) * Time.deltaTime);
+        //this.transform.Rotate(new Vector3(10, 75, 0) * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -15,6 +15,8 @@ public class PlayerUnits : StateMachineBehaviour
         Player = animator.gameObject;
         Opponent = Player.GetComponent<PlayerBattleController>().Enemy;
 
+        Player.GetComponent<PlayerBattleController>().OnAwake.Play();
+
         currentHP = Player.GetComponent<PlayerBattleController>().CurrentHP;
         maxHP = Player.GetComponent<PlayerBattleController>().MaxHP;
         defence = Player.GetComponent<PlayerBattleController>().MeleeDefence;

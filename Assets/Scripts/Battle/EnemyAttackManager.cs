@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class EnemyAttackManager : EnemyUnits
 {
-    public int a;
+    [SerializeField] int a;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         ThisEnemy.transform.LookAt(Opponent.transform.position);
+
+        ThisEnemy.GetComponent<EnemyAI>().OnAwake.Play();
+
         animator.SetBool("Battle", true);
 
         ThisEnemy.GetComponent<EnemyAI>().InBattle();
@@ -121,7 +124,6 @@ public class EnemyAttackManager : EnemyUnits
                     break;
             }
         }
-
         /*if (NPC.GetComponent<EnemyAI>().battleSystem.State != BattleState.Lost || NPC.GetComponent<EnemyAI>().battleSystem.State != BattleState.Won)
         {
             NPC.GetComponent<EnemyAI>().battleSystem.DialogueText.text = "Choose an action...";
