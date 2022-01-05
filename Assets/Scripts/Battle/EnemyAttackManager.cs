@@ -19,12 +19,12 @@ public class EnemyAttackManager : EnemyUnits
         a = Random.Range(1, 5);
         if (a == 1)
         {
-            if (ThisEnemy.GetComponent<EnemyAI>().MeleeDefence + 1.5f >= Opponent.GetComponent<PlayerBattleController>().MeleeDamage ||
-                        ThisEnemy.GetComponent<EnemyAI>().MagicDefence + 1.5f >= Opponent.GetComponent<PlayerBattleController>().MagicDamage)
+            if (ThisEnemy.GetComponent<EnemyAI>().MeleeDefence + 2f >= Opponent.GetComponent<PlayerBattleController>().MeleeDamage ||
+                        ThisEnemy.GetComponent<EnemyAI>().MagicDefence + 2f >= Opponent.GetComponent<PlayerBattleController>().MagicDamage)
             {
                 a = 4;
             }
-        }        
+        }
 
         if (ThisEnemy.GetComponent<EnemyAI>().IsMelee && !ThisEnemy.GetComponent<EnemyAI>().IsMagic)
         {
@@ -108,19 +108,29 @@ public class EnemyAttackManager : EnemyUnits
 
         else if (ThisEnemy.GetComponent<EnemyAI>().IsMelee && ThisEnemy.GetComponent<EnemyAI>().IsMagic)
         {
+            int x = Random.Range(1, 3);
             switch (a)
             {
                 case 4:
-                    animator.SetTrigger("Light");
+                    if(x == 1)
+                        animator.SetTrigger("LightMelee");
+                    if(x==2)
+                        animator.SetTrigger("LightMagic");
                     break;
+
                 case 1:
                     animator.SetTrigger("Defend");
                     break;
+
                 case 2:
                     animator.SetTrigger("Buff");
                     break;
+
                 case 3:
-                    animator.SetTrigger("Heavy");
+                    if (x == 1)
+                        animator.SetTrigger("HeavyMelee");
+                    if (x == 2)
+                        animator.SetTrigger("HeavyMagic");
                     break;
             }
         }

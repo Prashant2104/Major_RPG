@@ -21,6 +21,8 @@ public class Defend : EnemyUnits
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        ThisEnemy.GetComponent<EnemyAI>().Defence.Stop();
+
         if (ThisEnemy.GetComponent<EnemyAI>().IsMelee && !ThisEnemy.GetComponent<EnemyAI>().IsMagic)
         {
             ThisEnemy.GetComponent<EnemyAI>().MeleeDefence += 1.5f;

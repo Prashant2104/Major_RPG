@@ -8,6 +8,7 @@ public enum BattleState { Start, PlayerTurn, EnemyTurn, Won, Lost }
 public class BattleSystem : MonoBehaviour
 {
     public BattleState State;
+    public GameManager Manager;
 
     public GameObject Player_TPC;
     public GameObject Player_GO;
@@ -172,6 +173,11 @@ public class BattleSystem : MonoBehaviour
     }
     public void EnemyTurn()
     {
+        StartCoroutine(Wait());
+    }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1.5f);
         DialogueText.text = "Enemy attacks...";
         Enemy_GO.GetComponent<Animator>().SetTrigger("Attack");
     }
@@ -199,6 +205,13 @@ public class BattleSystem : MonoBehaviour
         Player_TPC.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         GetComponent<BattleSystem>().enabled = false;
+
+        Player_GO.GetComponent<PlayerBattleController>().MaxHP += 1;
+        Player_GO.GetComponent<PlayerBattleController>().CurrentHP += 1;
+        Player_GO.GetComponent<PlayerBattleController>().MeleeDam += 0.5f;
+        Player_GO.GetComponent<PlayerBattleController>().MeleeDef += 0.5f;
+        Player_GO.GetComponent<PlayerBattleController>().MagicDam += 0.5f;
+        Player_GO.GetComponent<PlayerBattleController>().MagicDef += 0.5f;
     }
     IEnumerator Lost()
     {

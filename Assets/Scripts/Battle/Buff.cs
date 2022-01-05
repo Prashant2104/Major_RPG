@@ -21,6 +21,8 @@ public class Buff : EnemyUnits
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        ThisEnemy.GetComponent<EnemyAI>().Buff.Stop();
+
         if (ThisEnemy.GetComponent<EnemyAI>().IsMelee && !ThisEnemy.GetComponent<EnemyAI>().IsMagic)
         {
             ThisEnemy.GetComponent<EnemyAI>().MeleeDamage += 1.0f;

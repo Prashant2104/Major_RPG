@@ -77,7 +77,7 @@ public class EnemyAI : MonoBehaviour
     }
     public void LightMagicVFX()
     {
-        LightMagicAttack.transform.LookAt(battleSystem.Player_GO.transform.GetChild(3));
+        LightMagicAttack.transform.LookAt(battleSystem.Player_GO.transform.position);
         LightMagicAttack.SetActive(true);
     }
     public void HeavyMagicVFX()

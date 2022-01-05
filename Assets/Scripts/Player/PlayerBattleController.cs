@@ -28,12 +28,11 @@ public class PlayerBattleController : MonoBehaviour
 
     [Header("Particle System")]
     public ParticleSystem OnAwake;
-    public ParticleSystem MeleeLightAttack;
-    public ParticleSystem MeleeHeavyAttack;
-    public ParticleSystem MagicLightAttack;
-    public ParticleSystem MagicHeavyAttack;
+    public ParticleSystem LightMagicAttack;
+    public ParticleSystem HeavyMagicAttack;
     public ParticleSystem Defence;
     public ParticleSystem Buff;
+    public ParticleSystem Heal;
 
     private void Start()
     {
@@ -76,5 +75,25 @@ public class PlayerBattleController : MonoBehaviour
     public void HUD()
     {
         battleSystem.PlayerHUD.SetHP(CurrentHP);
+    }
+    public void LightMagicVFX()
+    {
+        LightMagicAttack.Play();
+    }
+    public void HeavyMagicVFX()
+    {
+        HeavyMagicAttack.Play(true);
+    }
+    public void DefenceVFX()
+    {
+        Defence.Play();
+    }
+    public void BuffVFX()
+    {
+        Buff.Play();
+    }
+    public void HealVFX()
+    {
+        Heal.Play();
     }
 }

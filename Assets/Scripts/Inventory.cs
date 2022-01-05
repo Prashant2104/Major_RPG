@@ -72,7 +72,7 @@ public class Inventory : MonoBehaviour
     public void MagicDefenceAdd()
     {
         MagicDefencePotion++;
-        Player.GetComponent<PlayerBattleController>().MagicDef += 1.5f;
+        Player.GetComponent<PlayerBattleController>().MagicDef += 2f;
         Slots[3].text = Player.GetComponent<PlayerBattleController>().MagicDef.ToString();
     }
     public void MeleeAttackAdd()
@@ -84,7 +84,7 @@ public class Inventory : MonoBehaviour
     public void MagicAttackAdd()
     {
         MagicAttackPotion++;
-        Player.GetComponent<PlayerBattleController>().MagicDam += 1.5f;
+        Player.GetComponent<PlayerBattleController>().MagicDam += 2f;
         Slots[5].text = Player.GetComponent<PlayerBattleController>().MagicDam.ToString();
     }
 
@@ -92,7 +92,7 @@ public class Inventory : MonoBehaviour
     {
         if(HealPotion >= 1)
         {
-            Player.GetComponent<PlayerBattleController>().CurrentHP += 15;
+            Player.GetComponent<PlayerBattleController>().CurrentHP += 12;
             HealPotion--;
 
             if (Player.GetComponent<PlayerBattleController>().CurrentHP > Player.GetComponent<PlayerBattleController>().MaxHP)

@@ -21,6 +21,8 @@ public class PlayerDefend : PlayerUnits
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Player.GetComponent<PlayerBattleController>().Defence.Stop();
+
         Player.GetComponent<PlayerBattleController>().MeleeDefence += 1.25f;
         Player.GetComponent<PlayerBattleController>().MagicDefence += 1.25f;
 

@@ -16,13 +16,5 @@ public class EnemyUnits : StateMachineBehaviour
     {
         ThisEnemy = animator.gameObject;
         Opponent = ThisEnemy.GetComponent<EnemyAI>().battleSystem.Player_GO;
-
-        //Opponent = NPC.GetComponent<EnemyAI>().GetPlayer();
-        //BattleSystem = NPC.GetComponent<EnemyAI>().GetBattleSystem();
-
-        //currentHP = NPC.GetComponent<EnemyAI>().CurrentHP;
-        //maxHP = NPC.GetComponent<EnemyAI>().MaxHP;
-        //meleeDefence = NPC.GetComponent<EnemyAI>().MeleeDefence;
-        //magicDefence = NPC.GetComponent<EnemyAI>().MagicDefence;
     }
 }

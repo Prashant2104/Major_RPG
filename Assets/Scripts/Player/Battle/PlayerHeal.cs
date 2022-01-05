@@ -21,6 +21,8 @@ public class PlayerHeal : PlayerUnits
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Player.GetComponent<PlayerBattleController>().Heal.Stop();
+
         Player.GetComponent<PlayerBattleController>().battleSystem.inventory.HealButton();
 
         Player.GetComponent<PlayerBattleController>().battleSystem.State = BattleState.EnemyTurn;

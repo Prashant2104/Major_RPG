@@ -14,42 +14,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightingModel: 0
   sunCopyColor: 1
-  density: 0.5
-  noiseStrength: 0.048
-  height: 261
-  heightFallOff: 0.457
+  density: 0.3
+  noiseStrength: 0.1
+  height: 284
+  heightFallOff: 0.6
   baselineHeight: 0
-  distance: 100
-  distanceFallOff: 0.92
+  distance: 163
+  distanceFallOff: 0.8
   maxFogLength: 400
   maxFogLengthFallOff: 0.205
   baselineRelativeToCamera: 0
   baselineRelativeToCameraDelay: 0.115
   noiseScale: 1
-  noiseSparse: 1.55
+  noiseSparse: 0
   noiseFinalMultiplier: 1
-  alpha: 0.75
-  color: {r: 0.8490566, g: 0.79492015, b: 0.7249021, a: 1}
+  alpha: 0.5
+  color: {r: 0.8962264, g: 0.81096977, b: 0.71444464, a: 1}
   deepObscurance: 1
-  specularColor: {r: 1, g: 1, b: 0.8, a: 1}
-  specularThreshold: 0.6
+  specularColor: {r: 0.9622642, g: 0.9622642, b: 0.92141336, a: 1}
+  specularThreshold: 0.232
   specularIntensity: 0
-  lightDirection: {x: 1, y: 0, z: -1}
+  lightDirection: {x: -0.3213938, y: -0.76604444, z: 0.5566705}
   lightIntensity: 0
-  lightColor: {r: 1, g: 1, b: 1, a: 1}
-  speed: 0.258
+  lightColor: {r: 0.9528302, g: 0.92623883, b: 0.78653437, a: 1}
+  speed: 0.05
   useRealTime: 1
   windDirection: {x: -1, y: 0, z: 0}
   turbulenceStrength: 0.32
   useXYPlane: 0
-  skyColor: {r: 0.79, g: 0.79, b: 0.79, a: 0.9}
-  skyHaze: 144
-  skySpeed: 0.3
-  skyNoiseStrength: 0.7
+  skyColor: {r: 1, g: 0.90952647, b: 0.6839622, a: 1}
+  skyHaze: 450
+  skySpeed: 0.05
+  skyNoiseStrength: 0.826
   skyNoiseScale: 1
-  skyAlpha: 0.9
+  skyAlpha: 1
   skyDepth: 0.999
-  stepping: 8
+  stepping: 6
   steppingNear: 0
   dithering: 0
   ditherStrength: 0.75

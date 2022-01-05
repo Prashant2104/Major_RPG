@@ -15,7 +15,7 @@ public class EnemyBattleHUD : MonoBehaviour
         Health.value = unit.CurrentHP;
     }
     public void SetHP(float hp)
-    {
+    {        
         Health.value = hp;
     }
 }
