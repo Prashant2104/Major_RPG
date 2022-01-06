@@ -29,10 +29,16 @@ public class BattleSystem : MonoBehaviour
     private void OnEnable()
     {
         State = BattleState.Start;
+
         BattleHUD.SetActive(true);
         ChoicePanel.SetActive(true);
+
         AttackPanel.SetActive(false);
         SpecialPanel.SetActive(false);
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
+
         StartCoroutine(BattleSetup());
     }
     
@@ -64,29 +70,27 @@ public class BattleSystem : MonoBehaviour
     public void OnAttackChoice()
     {
         ChoicePanel.SetActive(false);
+        AttackPanel.SetActive(true);
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(AttackPanel.transform.GetChild(0).gameObject);
-
-        AttackPanel.SetActive(true);
     }
     public void OnSpecialChoice()
     {
         ChoicePanel.SetActive(false);
+        SpecialPanel.SetActive(true);
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(SpecialPanel.transform.GetChild(0).gameObject);
-
-        SpecialPanel.SetActive(true);
     }
     public void OnBackButton()
     {
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
-
-        ChoicePanel.SetActive(true);
         AttackPanel.SetActive(false);
         SpecialPanel.SetActive(false);
+        ChoicePanel.SetActive(true);
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
     }
     public void OnLightMeleeAttackButton()
     {
@@ -94,10 +98,10 @@ public class BattleSystem : MonoBehaviour
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("LightMelee");
 
+        AttackPanel.SetActive(false);
+        ChoicePanel.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
-        ChoicePanel.SetActive(true);
-        AttackPanel.SetActive(false);
     }
     public void OnHeavyMeleeAttackButton()
     {
@@ -105,10 +109,10 @@ public class BattleSystem : MonoBehaviour
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("HeavyMelee");
 
+        AttackPanel.SetActive(false);
+        ChoicePanel.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
-        ChoicePanel.SetActive(true);
-        AttackPanel.SetActive(false);
     }
     public void OnLightMagicAttackButton()
     {
@@ -116,10 +120,10 @@ public class BattleSystem : MonoBehaviour
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("LightMagic");
 
+        AttackPanel.SetActive(false);
+        ChoicePanel.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
-        ChoicePanel.SetActive(true);
-        AttackPanel.SetActive(false);
     }
     public void OnHeavyMagicAttackButton()
     {
@@ -127,10 +131,10 @@ public class BattleSystem : MonoBehaviour
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("HeavyMagic");
 
+        AttackPanel.SetActive(false);
+        ChoicePanel.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
-        ChoicePanel.SetActive(true);
-        AttackPanel.SetActive(false);
     }
     public void OnBuffButton()
     {
@@ -138,10 +142,10 @@ public class BattleSystem : MonoBehaviour
             return;
         Player_GO.GetComponent<Animator>().SetTrigger("Buff");
 
+        SpecialPanel.SetActive(false);
+        ChoicePanel.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
-        ChoicePanel.SetActive(true);
-        SpecialPanel.SetActive(false);
     }
     public void OnDefendButton()
     {
@@ -153,10 +157,10 @@ public class BattleSystem : MonoBehaviour
 
         Player_GO.GetComponent<Animator>().SetTrigger("Defend");
 
+        SpecialPanel.SetActive(false);
+        ChoicePanel.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
-        ChoicePanel.SetActive(true);
-        SpecialPanel.SetActive(false);
     }
     public void OnHealButton()
     {
@@ -166,10 +170,10 @@ public class BattleSystem : MonoBehaviour
 
         PlayerHUD.SetHUD(battleController);
 
+        SpecialPanel.SetActive(false);
+        ChoicePanel.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(ChoicePanel.transform.GetChild(0).gameObject);
-        ChoicePanel.SetActive(true);
-        SpecialPanel.SetActive(false);
     }
     public void EnemyTurn()
     {

@@ -301,13 +301,21 @@ public class @ThirdPersonPlayerController : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""d490b25c-572c-437e-b633-3d016c49133b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""52bb9e41-e0c3-40a6-8663-504876cfd627"",
-                    ""path"": ""<Gamepad>/start"",
+                    ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -347,6 +355,28 @@ public class @ThirdPersonPlayerController : IInputActionCollection, IDisposable
                     ""action"": ""Heal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1541592f-049c-42a6-8d32-ea2dc42def23"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9f0efbb-dce9-4c2d-b9cb-fc675f895eab"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -365,6 +395,7 @@ public class @ThirdPersonPlayerController : IInputActionCollection, IDisposable
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_ShowStats = m_UI.FindAction("ShowStats", throwIfNotFound: true);
         m_UI_Heal = m_UI.FindAction("Heal", throwIfNotFound: true);
+        m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -498,12 +529,14 @@ public class @ThirdPersonPlayerController : IInputActionCollection, IDisposable
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_ShowStats;
     private readonly InputAction m_UI_Heal;
+    private readonly InputAction m_UI_Pause;
     public struct UIActions
     {
         private @ThirdPersonPlayerController m_Wrapper;
         public UIActions(@ThirdPersonPlayerController wrapper) { m_Wrapper = wrapper; }
         public InputAction @ShowStats => m_Wrapper.m_UI_ShowStats;
         public InputAction @Heal => m_Wrapper.m_UI_Heal;
+        public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -519,6 +552,9 @@ public class @ThirdPersonPlayerController : IInputActionCollection, IDisposable
                 @Heal.started -= m_Wrapper.m_UIActionsCallbackInterface.OnHeal;
                 @Heal.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnHeal;
                 @Heal.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnHeal;
+                @Pause.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -529,6 +565,9 @@ public class @ThirdPersonPlayerController : IInputActionCollection, IDisposable
                 @Heal.started += instance.OnHeal;
                 @Heal.performed += instance.OnHeal;
                 @Heal.canceled += instance.OnHeal;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -547,5 +586,6 @@ public class @ThirdPersonPlayerController : IInputActionCollection, IDisposable
     {
         void OnShowStats(InputAction.CallbackContext context);
         void OnHeal(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

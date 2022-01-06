@@ -16,6 +16,9 @@ public class EnemyAttackManager : EnemyUnits
 
         ThisEnemy.GetComponent<EnemyAI>().InBattle();
 
+        if(!ThisEnemy.GetComponent<AudioSource>().isPlaying)
+            ThisEnemy.GetComponent<AudioSource>().Play();
+
         a = Random.Range(1, 5);
         if (a == 1)
         {

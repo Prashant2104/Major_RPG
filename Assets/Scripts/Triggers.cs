@@ -10,6 +10,9 @@ public class Triggers : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            if (this.gameObject.CompareTag("Exit"))
+                FindObjectOfType<ProgressSceneLoader>().LoadScene("Dungeon2");
+
             Manager.TriggerEnter();
             this.gameObject.SetActive(false);
         }

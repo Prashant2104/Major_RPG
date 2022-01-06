@@ -24,6 +24,7 @@ public class InputManager : MonoBehaviour
     public float cameraInputY;
 
     public Inventory Stats;
+    public GameManager Manager;
 
     private void Awake()
     {
@@ -49,6 +50,8 @@ public class InputManager : MonoBehaviour
             playerControls.UI.ShowStats.canceled += i => Stats.DisableStats();
 
             playerControls.UI.Heal.performed += i => Stats.HealButton();
+
+            playerControls.UI.Pause.performed += i => Manager.PauseMenu();
         }
         playerControls.Enable();
     }

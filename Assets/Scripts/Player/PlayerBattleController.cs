@@ -7,6 +7,7 @@ public class PlayerBattleController : MonoBehaviour
     public GameObject PlayerOG;
     public GameObject Enemy;
     public BattleSystem battleSystem;
+    public GameObject DeathPanel;
 
     private Animator anim;
 
@@ -37,7 +38,6 @@ public class PlayerBattleController : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        //battleSystem = GetComponent<BattleSystem>();
     }
 
     private void OnEnable()
@@ -95,5 +95,9 @@ public class PlayerBattleController : MonoBehaviour
     public void HealVFX()
     {
         Heal.Play();
+    }
+    public void Death()
+    {
+        DeathPanel.SetActive(true);
     }
 }

@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public BattleSystem battleSystem;
     public GameObject Player;
     private Animator anim;
+
     public NavMeshAgent agent;
     [SerializeField] float dist;
 

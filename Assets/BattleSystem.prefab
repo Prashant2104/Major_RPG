@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 0
+  Manager: {fileID: 0}
   Player_TPC: {fileID: 0}
   Player_GO: {fileID: 0}
   Enemy_GO: {fileID: 0}
@@ -52,8 +53,6 @@ MonoBehaviour:
   EnemyHUD: {fileID: 0}
   inventory: {fileID: 0}
   DialogueText: {fileID: 0}
-  Attack: {fileID: 0}
-  Special: {fileID: 0}
   ChoicePanel: {fileID: 0}
   AttackPanel: {fileID: 0}
   SpecialPanel: {fileID: 0}

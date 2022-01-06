@@ -50,7 +50,6 @@ public class Inventory : MonoBehaviour
     {
         StatsPanel.SetActive(false);
     }
-
     public void HealAdd()
     {
         HealPotion++;

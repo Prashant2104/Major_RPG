@@ -1682,6 +1682,7 @@ MonoBehaviour:
   Name: {fileID: 10748995465300978}
   HealthStat: {fileID: 1341556192678137098}
   Health: {fileID: 3925439343276109138}
+  maxHP: 0
 --- !u!1 &3487347915775609443
 GameObject:
   m_ObjectHideFlags: 0
