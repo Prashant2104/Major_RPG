@@ -11,7 +11,6 @@ public class Insects : MonoBehaviour
 
     NavMeshAgent agent;
     Animator anim;
-    // Start is called before the first frame update
     void Start()
     {
         Goal = GameObject.FindGameObjectsWithTag("Goal");
@@ -23,8 +22,6 @@ public class Insects : MonoBehaviour
         agent.speed = 2f;
         anim.SetTrigger("Walk");
     }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         float playerDist = Vector3.Distance(transform.position, Player.transform.position);
@@ -34,7 +31,6 @@ public class Insects : MonoBehaviour
             Vector3 direction = transform.position - Player.transform.position;
             Vector3 newPos = transform.position + direction;
 
-            //transform.LookAt(newPos);
             agent.SetDestination(newPos);
 
             agent.speed = 5f;

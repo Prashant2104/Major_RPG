@@ -315,7 +315,7 @@ public class @ThirdPersonPlayerController : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""52bb9e41-e0c3-40a6-8663-504876cfd627"",
-                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -337,7 +337,7 @@ public class @ThirdPersonPlayerController : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f16e5c8d-0b78-464a-90e7-0ceb5ddcea2f"",
-                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

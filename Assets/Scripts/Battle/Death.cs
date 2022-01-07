@@ -10,6 +10,7 @@ public class Death : EnemyUnits
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        ThisEnemy.GetComponent<AudioSource>().Stop();
         ThisEnemy.gameObject.SetActive(false);
     }
 }

@@ -28,7 +28,6 @@ public class EnemyAttackManager : EnemyUnits
                 a = 4;
             }
         }
-
         if (ThisEnemy.GetComponent<EnemyAI>().IsMelee && !ThisEnemy.GetComponent<EnemyAI>().IsMagic)
         {
             if (ThisEnemy.GetComponent<EnemyAI>().IsHeavy)

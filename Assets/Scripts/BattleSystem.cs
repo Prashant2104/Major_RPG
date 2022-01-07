@@ -201,6 +201,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator Win()
     {
+        Enemy_GO.GetComponent<AudioSource>().Stop();
         DialogueText.text = "You win";
         Enemy_GO.GetComponent<Animator>().SetTrigger("Death");
         yield return new WaitForSeconds(0.5f);

@@ -26,6 +26,7 @@ public class InputManager : MonoBehaviour
     public Inventory Stats;
     public GameManager Manager;
 
+    public ParticleSystem Heal;
     private void Awake()
     {
         animatorManager = GetComponent<AnimatorManager>();
@@ -49,7 +50,7 @@ public class InputManager : MonoBehaviour
             playerControls.UI.ShowStats.performed += i => Stats.EnableStats();
             playerControls.UI.ShowStats.canceled += i => Stats.DisableStats();
 
-            playerControls.UI.Heal.performed += i => Stats.HealButton();
+            playerControls.UI.Heal.performed += i => HealVFX();
 
             playerControls.UI.Pause.performed += i => Manager.PauseMenu();
         }
@@ -93,5 +94,20 @@ public class InputManager : MonoBehaviour
             JumpInput = false;
             playerMotion.HandleJump();
         }
+    }
+
+    public void HealVFX()
+    {
+        if(Stats.HealPotion >= 1)
+        {
+            Heal.Play();
+            StartCoroutine(StopVFX());
+        }
+        Stats.HealButton();
+    }
+    IEnumerator StopVFX()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Heal.Stop();
     }
 }

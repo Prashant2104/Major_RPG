@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public bool IsPaused;
     public GameObject PausePanel;
+    public GameObject YouWon;
 
     [SerializeField] int enemyCount;
     [SerializeField] int triggerCount;
@@ -63,5 +65,17 @@ public class GameManager : MonoBehaviour
                 PausePanel.SetActive(false);
             }
         }
+    }
+
+    public void Win()
+    {
+        YouWon.SetActive(true);
+        Player_TPC.GetComponent<PlayerManager>().enabled = false;
+        StartCoroutine(WinWait());
+    }
+    IEnumerator WinWait()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(0);
     }
 }

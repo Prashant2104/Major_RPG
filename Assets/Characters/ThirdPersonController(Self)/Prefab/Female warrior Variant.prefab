@@ -84,7 +84,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!114 &1130900515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,16 +455,17 @@ MonoBehaviour:
   PlayerOG: {fileID: 0}
   Enemy: {fileID: 0}
   battleSystem: {fileID: 0}
+  DeathPanel: {fileID: 0}
   MeleeDamage: 7
   MagicDamage: 6
   MeleeDefence: 5
   MagicDefence: 4
-  MeleeDam: 10
-  MagicDam: 10
-  MeleeDef: 5
-  MagicDef: 5
+  MeleeDam: 7
+  MagicDam: 7
+  MeleeDef: 4
+  MagicDef: 4
   MaxHP: 25
-  CurrentHP: 20
+  CurrentHP: 25
   OnAwake: {fileID: 198639015279020021}
   LightMagicAttack: {fileID: 198018425139239815}
   HeavyMagicAttack: {fileID: 198451228856067831}
@@ -1705,7 +1706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0f54dbed7b7b2e94687ea3da3effbe9d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0f54dbed7b7b2e94687ea3da3effbe9d, type: 3}
       propertyPath: m_TagString

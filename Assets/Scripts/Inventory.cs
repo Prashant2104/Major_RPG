@@ -20,8 +20,6 @@ public class Inventory : MonoBehaviour
 
     public GameObject Player;
 
-    ThirdPersonPlayerController playerControls;
-
     private void Start()
     {
         StatsPanel.SetActive(false);
