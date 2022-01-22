@@ -358,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
@@ -810,9 +811,33 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
+      propertyPath: MaxHP
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
+      propertyPath: MagicDam
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
+      propertyPath: MagicDef
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
+      propertyPath: MeleeDam
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
+      propertyPath: MeleeDef
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
       propertyPath: PlayerOG
       value: 
       objectReference: {fileID: 2114427778}
+    - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
+      propertyPath: CurrentHP
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 478777292, guid: cfcb4981099e40e4fa2f2d3c602c1cc7, type: 3}
       propertyPath: DeathPanel
       value: 
